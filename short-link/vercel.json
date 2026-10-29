@@ -1,0 +1,20 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/wall-of-love",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/wall-of-love",
+      "destination": "https://killianward8-lab.github.io/wall-of-love/"
+    },
+    {
+      "source": "/wall-of-love/:path*",
+      "destination": "https://killianward8-lab.github.io/wall-of-love/:path*"
+    }
+  ]
+}

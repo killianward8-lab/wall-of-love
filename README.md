@@ -22,6 +22,15 @@ Reviews are never removed by a refresh; only `hidden.json` takes one off.
 Trustpilot itself blocks servers, so a Trustpilot review the Wall never imports (like
 Constance Lyners Mendes, Oct 14) has to be added to `tools/trustpilot_seed.json` by hand.
 
+## The link to send
+
+**https://killian-poppy.vercel.app/wall-of-love**
+
+`short-link/vercel.json` is a Vercel project (`killian-poppy`, Killian's own account) that shows the
+GitHub Pages page under that address. It never needs redeploying: the page loads its photo and
+`reviews.json` from GitHub Pages (`<base href>` in `index.html`), so the 3-hourly refresh shows up
+there too. To change the Vercel config: `cd short-link && npx vercel deploy --prod`.
+
 ## Run it locally
 
 ```bash
