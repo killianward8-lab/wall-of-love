@@ -54,10 +54,6 @@
   .brand img { width: 44px; height: 44px; object-fit: contain; }
   .brand b { display: block; font-size: 24px; line-height: 1; color: var(--coral); font-weight: 700; }
   .brand small { display: block; margin-top: 5px; font-size: 11px; letter-spacing: .14em; color: var(--muted); text-transform: uppercase; }
-  .score { text-align: right; }
-  .score b { display: block; font-size: 38px; line-height: 1; font-weight: 700; letter-spacing: -.02em; }
-  .score .stars { font-size: 17px; }
-  .score small { display: block; font-size: 12px; color: var(--muted); }
 
   /* hero */
   .hero { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; padding: 44px 0 30px; }
@@ -68,9 +64,14 @@
   h1 { margin: 0; font: 600 clamp(28px, 4.4vw, 46px)/1.12 Lora, Georgia, serif; letter-spacing: -.01em; text-wrap: balance; }
   .sub { margin: 12px 0 0; max-width: 640px; color: var(--muted); font-size: 16px; }
   .why { margin: 10px 0 0; font: 600 19px/1.35 Poppins, system-ui, sans-serif; color: var(--coral); }
-  .tiles { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-  .tile { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 9px 14px; font-size: 13px; color: var(--muted); }
-  .tile b { color: var(--ink); font-size: 18px; margin-right: 4px; }
+  .who-me { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .name { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
+  .name b { display: block; color: var(--ink); font-size: 17px; font-weight: 600; }
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 22px; max-width: 600px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+  .stats div { padding: 14px 18px; }
+  .stats div + div { border-left: 1px solid var(--line); }
+  .stats b { display: block; font: 700 28px/1.1 Poppins, sans-serif; letter-spacing: -.02em; color: var(--ink); }
+  .stats span { display: block; margin-top: 4px; font-size: 12.5px; line-height: 1.35; color: var(--muted); }
 
   /* filter bar */
   .bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
@@ -114,7 +115,8 @@
     .top { padding-top: 18px; }
     .brand img { width: 36px; height: 36px; }
     .brand b { font-size: 20px; }
-    .score b { font-size: 28px; }
+    .stats b { font-size: 24px; }
+    .stats div { padding: 12px 14px; }
     .hero { grid-template-columns: 1fr; gap: 16px; padding: 28px 0 18px; }
     .me { width: 96px; height: 96px; }
     .card { padding: 18px 18px 16px; }
@@ -131,24 +133,27 @@
       <img src="https://getpoppy.ai/logos/poppy-mark.png" alt="">
       <span><b>Poppy</b><small>Real customer reviews</small></span>
     </a>
-    <div class="score" aria-live="polite">
-      <b id="avg">5.0</b>
-      <span class="stars" aria-hidden="true">★★★★★</span>
-      <small id="total">Reviews that name Killian</small>
-    </div>
   </header>
 
   <section class="hero">
-    <div class="me">
-      <img src="killian.jpg" alt="Killian Ward">
-      <span aria-hidden="true">👋</span>
+    <div class="who-me">
+      <div class="me">
+        <img src="killian.jpg" alt="Killian Ward">
+        <span aria-hidden="true">👋</span>
+      </div>
+      <p class="name"><b>Killian Ward</b>Content Strategist · Poppy AI</p>
     </div>
     <div>
       <p class="eyebrow">Killian's Wall of Love ❤️</p>
       <h1>What people say after their call with Killian</h1>
       <p class="sub">Every review here mentions Killian by name. They're real Poppy customers.</p>
       <p class="why">This is why you should show up to your onboarding.</p>
-      <div class="tiles" id="tiles"></div>
+      <!-- calls = Killian's Grain onboarding/strategy recordings where a customer talked, Apr–Oct 2026 -->
+      <div class="stats">
+        <div><b>470+</b><span>strategy &amp; onboarding calls</span></div>
+        <div><b id="st-n">48</b><span>reviews that name Killian</span></div>
+        <div><b id="st-avg">5.0 ★</b><span>customer rating</span></div>
+      </div>
     </div>
   </section>
 </div>
@@ -282,15 +287,8 @@
     const n = state.reviews.length;
     const avg = state.reviews.reduce((s, r) => s + (r.rating || 5), 0) / n;
     const count = (k) => state.reviews.filter((r) => r.source === k).length;
-    const fives = state.reviews.filter((r) => (r.rating || 5) === 5).length;
-    document.getElementById("avg").textContent = avg.toFixed(1);
-    document.getElementById("total").textContent = `${n} reviews that name Killian`;
-    document.getElementById("tiles").innerHTML = [
-      `<span class="tile"><b>${n}</b>reviews</span>`,
-      count("trustpilot") ? `<span class="tile"><b>${count("trustpilot")}</b>on Trustpilot</span>` : "",
-      count("appsumo") ? `<span class="tile"><b>${count("appsumo")}</b>on AppSumo</span>` : "",
-      `<span class="tile"><b>${Math.round((fives / n) * 100)}%</b>five stars</span>`,
-    ].join("");
+    document.getElementById("st-n").textContent = n;
+    document.getElementById("st-avg").textContent = `${avg.toFixed(1)} ★`;
 
     const chips = [["all", "All", n], ...["trustpilot", "appsumo"].map((k) => [k, SOURCES[k].label, count(k)]).filter((c) => c[2])];
     const box = document.getElementById("sources");
