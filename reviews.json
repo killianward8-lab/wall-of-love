@@ -1,6 +1,18 @@
 {
- "count": 48,
+ "count": 49,
  "reviews": [
+  {
+   "id": "wall:e0b523d0-d9e8-4fdb-bba8-678c0be079a9",
+   "source": "wall",
+   "date": "2026-10-30",
+   "name": "Mourad Al Damarawy",
+   "role": null,
+   "avatar": null,
+   "rating": 5,
+   "title": null,
+   "text": "Wonderful boarding with Killian, I met nice people and get deep insights about the template, how to search highly viral content , creating \"My brand and business\" inputs and \"Inspiration Content\" adding the top notch from \"YouTube Hook Strategy Tutorials\", \"Short Form Hook Strategy\", \"LinkedIn Hook Strategy\", feed all those inputs to my chat, I learned that I can bring my own AI and start long chats and cancel all my other AI at the end it can generate images, but not videos",
+   "url": null
+  },
   {
    "id": "tp:6ad8dfbd7424478c8bcd05e4",
    "source": "trustpilot",
@@ -385,7 +397,7 @@
    "date": "2026-06-29",
    "name": "ChrisD41020",
    "avatar": "https://appsumo2-cdn.appsumo.com/media/users/avatars/Yellow_Background_Frangipani.webp",
-   "deals": 418,
+   "deals": 419,
    "since": "2017",
    "rating": 5,
    "title": "My New Mate Poppy",
@@ -598,5 +610,5 @@
    "url": "https://www.trustpilot.com/reviews/6a1845f36a32b7216771700b"
   }
  ],
- "updated": "2026-10-30T22:27:00+00:00"
+ "updated": "2026-10-31T05:53:39+00:00"
 }
