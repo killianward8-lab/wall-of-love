@@ -1,6 +1,18 @@
 {
- "count": 49,
+ "count": 50,
  "reviews": [
+  {
+   "id": "wall:e1120854-56bf-4bef-a863-903a79eb76a7",
+   "source": "wall",
+   "date": "2026-11-17",
+   "name": "Peter",
+   "role": null,
+   "avatar": null,
+   "rating": 5,
+   "title": null,
+   "text": "Really helpful onboarding and broke down the poppy app really well. Killian was really helpful and as I result I will take the year membership up in the next few days.",
+   "url": null
+  },
   {
    "id": "wall:e0b523d0-d9e8-4fdb-bba8-678c0be079a9",
    "source": "wall",
@@ -487,7 +499,7 @@
    "date": "2026-06-12",
    "name": null,
    "avatar": null,
-   "deals": 322,
+   "deals": 323,
    "since": "2011",
    "rating": 5,
    "title": "Best Onboarding Call Ever",
@@ -610,5 +622,5 @@
    "url": "https://www.trustpilot.com/reviews/6a1845f36a32b7216771700b"
   }
  ],
- "updated": "2026-11-16T06:42:39+00:00"
+ "updated": "2026-11-18T11:52:22+00:00"
 }
